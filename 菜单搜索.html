@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+<link rel="stylesheet" href="菜单搜索.css">
+
+<script type="text/javascript">
+	
+	function myFunction() {
+    	var input, filter, ul, li, a, i;
+		// 获得输入内容
+    	input = document.getElementById("mySearch");
+		// 把输入的字母全部更改为大写
+    	filter = input.value.toUpperCase();
+		// 获得导航菜单
+		ul = document.getElementById("myMenu");
+		// 根据标签名称获得 li 标签
+		li = ul.getElementsByTagName("li");
+		// 遍历搜索分类
+		for (i = 0; i < li.length; i++) {
+			// 在li 标签的基础上根据标签名称获得 a 标签
+			a = li[i].getElementsByTagName("a")[0];
+			// 导航 a 标签中的字符串是否包含 filter 子串
+        	if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+				li[i].style.display = "";
+			} else {
+            	li[i].style.display = "none";
+        	}
+    	}
+	}
+	
+	</script>
+
+</head>
+
+<body>
+
+<div class="row">
+  <div class="left" style="background-color:#bbb;">
+    <h2>菜单</h2>
+    <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="搜索.." title="输入分类">
+    <ul id="myMenu">
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+      <li><a href="#">PHP</a></li>
+      <li><a href="#">Python</a></li>
+      <li><a href="#">jQuery</a></li>
+      <li><a href="#">SQL</a></li>
+      <li><a href="#">Bootstrap</a></li>
+      <li><a href="#">Node.js</a></li>
+      <li><a href="#">中文分类</a></li>
+    </ul>
+  </div>
+  
+  <div class="right" style="background-color:#ddd;">
+    <h2>内容</h2>
+    <p>在搜索框输入菜单列表的分类名搜索对应内容。</p>
+    <p>Some text..Some text..Some text..Some text..Some text..Some text..Some text..Some text..</p>
+    <p>Some other text..Some text..Some text..Some text..Some text..Some text..Some text..Some text..</p>
+    <p>Some text..</p>
+  </div>
+</div>
+
+
+</body>
+</html>
